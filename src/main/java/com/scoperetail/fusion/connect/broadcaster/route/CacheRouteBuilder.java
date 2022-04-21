@@ -2,7 +2,7 @@ package com.scoperetail.fusion.connect.broadcaster.route;
 
 /*-
  * *****
- * hawkeye-heartbeat
+ * fusion-connect-broadcaster
  * -----
  * Copyright (C) 2018 - 2022 Scope Retail Systems Inc.
  * -----

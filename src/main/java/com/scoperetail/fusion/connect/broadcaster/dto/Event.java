@@ -2,7 +2,7 @@ package com.scoperetail.fusion.connect.broadcaster.dto;
 
 /*-
  * *****
- * fusion-broadcaster
+ * fusion-connect-broadcaster
  * -----
  * Copyright (C) 2018 - 2022 Scope Retail Systems Inc.
  * -----

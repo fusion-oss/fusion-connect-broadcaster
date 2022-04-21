@@ -2,7 +2,7 @@ package com.scoperetail.fusion.connect.broadcaster;
 
 /*-
  * *****
- * hawkeye-heartbeat
+ * fusion-connect-broadcaster
  * -----
  * Copyright (C) 2018 - 2022 Scope Retail Systems Inc.
  * -----
@@ -32,8 +32,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class FusionConnectBroadcaster {
 
-	public static void main(String[] args) {
-		SpringApplication.run(FusionConnectBroadcaster.class, args);
-	}
-
+  public static void main(final String[] args) {
+    SpringApplication.run(FusionConnectBroadcaster.class, args);
+  }
 }
