@@ -12,10 +12,10 @@ package com.scoperetail.fusion.connect.broadcaster.route;
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -44,6 +44,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BroadcasteRouteBuilder extends RouteBuilder {
 
+  private static final String MESSAGE_ID = "messageId";
+  private static final String CORRELATION_ID = "correlationId";
+  private static final String EVENT_TYPE = "eventType";
+  private static final String TARGET_URI = "targetUri";
   private static final String COMMA = ",";
   private static final String EVENT_COUNT = "EventCount";
   private static final String TARGET_NAME = "<<TARGET_NAME>>";
@@ -77,7 +81,7 @@ public class BroadcasteRouteBuilder extends RouteBuilder {
                 final Integer loopIndex = (Integer) exchange.getProperty(Exchange.LOOP_INDEX);
                 final Event event = broadcasterConfig.getEvents().get(loopIndex);
                 updateExchangeHeaders(exchange, event);
-                exchange.setProperty("targetUri", buildTargetUri(event));
+                exchange.setProperty(TARGET_URI, buildTargetUri(event));
                 blacklistTargetHeaders(exchange);
               }
             })
@@ -87,9 +91,9 @@ public class BroadcasteRouteBuilder extends RouteBuilder {
 
   private void updateExchangeHeaders(final Exchange exchange, final Event event) {
     final Map<String, Object> headers = exchange.getIn().getHeaders();
-    headers.put("eventType", event.getEventName());
-    headers.put("correlationId", UUID.randomUUID().toString());
-    headers.put("messageId", UUID.randomUUID().toString());
+    headers.put(EVENT_TYPE, event.getEventName());
+    headers.put(CORRELATION_ID, UUID.randomUUID().toString());
+    headers.put(MESSAGE_ID, UUID.randomUUID().toString());
   }
 
   private String buildTargetUri(final Event event) {
