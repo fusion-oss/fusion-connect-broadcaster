@@ -7,7 +7,7 @@
 		<version>1.6</version>
 		<relativePath />
 	</parent>
-	<groupId>com.scoperetail.fusion.connect.broadcaster</groupId>
+	<groupId>com.scoperetail.fusion</groupId>
 	<artifactId>fusion-connect-broadcaster</artifactId>
 	<version>0.2-SNAPSHOT</version>
 	<name>fusion-connect-broadcaster</name>
