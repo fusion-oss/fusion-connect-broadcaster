@@ -15,15 +15,22 @@
 	<name>fusion-connect-broadcaster</name>
 	<description>Fusion connect broadcaster application</description>
 	<properties>
-		<java.version>11</java.version>
+		<sonar.organization>fusion-oss</sonar.organization>
 		<camel-spring-boot-starter.version>3.11.1</camel-spring-boot-starter.version>
 		<spring-cloud-starter.version>3.0.4</spring-cloud-starter.version>
 		<spring.cloud.version>2021.0.0</spring.cloud.version>
-		<mariadb.version>2.7.2</mariadb.version>
 		<camel.version>3.11.1</camel.version>
 		<spring-boot-dependencies.version>2.6.2</spring-boot-dependencies.version>
 	</properties>
 
+	<scm>
+		<developerConnection>
+            scm:git:git@github.com:fusion-oss/${project.artifactId}.git
+        </developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/fusion-oss/${project.artifactId}</url>
+	</scm>
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
