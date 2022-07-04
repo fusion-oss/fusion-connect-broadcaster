@@ -83,6 +83,9 @@ public class BroadcasteRouteBuilder extends RouteBuilder {
                 updateExchangeHeaders(exchange, event);
                 exchange.setProperty(TARGET_URI, buildTargetUri(event));
                 blacklistTargetHeaders(exchange);
+                if (StringUtils.hasText(event.getPayloadOverride())) {
+                  exchange.getIn().setBody(event.getPayloadOverride());
+                }
               }
             })
         .toD("${exchangeProperty.targetUri}")
